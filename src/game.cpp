@@ -21,6 +21,11 @@ void GameState::ApplyPendingScene() {
 }
 
 void GameState::Init() {
+    input.BindAction(Action::P1Left, GLFW_KEY_A);
+    input.BindAction(Action::P1Right, GLFW_KEY_D);
+    input.BindAction(Action::P2Left, GLFW_KEY_LEFT);
+    input.BindAction(Action::P2Right, GLFW_KEY_RIGHT);
+
     ChangeScene(new PlayingScene());
 }
 

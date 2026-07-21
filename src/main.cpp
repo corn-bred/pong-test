@@ -30,7 +30,7 @@
 
 using namespace std;
 
-int WIDTH = 1200;
+int WIDTH = 900;
 int HEIGHT = 800;
 double CurrentTime = 0.0;
 double DeltaTime = 0.0, LastTime;

@@ -45,6 +45,11 @@ class Scene {
 //Custom scenes written below
 
 class PlayingScene : public Scene {
+    Player *P1;
+    Player *P2;
+    Shader *mainShader;
+    VertexBuffer *mainVBO;
+    Ball *ball;
     public:
 
     void Init() override;

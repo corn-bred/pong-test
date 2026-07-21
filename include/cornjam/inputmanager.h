@@ -5,12 +5,10 @@
 #include <misc/globals.h>
 
 enum class Action {
-    Jump,
-    MoveUp,
-    MoveDown,
-    MoveLeft,
-    MoveRight,
-    Pause,
+    P1Left,
+    P1Right,
+    P2Left,
+    P2Right,
     Count
 };
 
