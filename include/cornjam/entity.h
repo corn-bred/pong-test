@@ -98,7 +98,7 @@ class Player : public Entity {
             if (input.isActionPressed(Action::P1Right)) {
                 Velocity.x += Speed.x * (DeltaTime * 60);
             }
-
+            
         }
 
         if (PlayerNum == 2) {
@@ -135,7 +135,7 @@ class Ball : public Entity {
         ScaleGlobal = scaleGlobal;
     }
 
-    void VeloUpdate(AABBHitbox P1, AABBHitbox P2) { //If anything is farther than searchRadius, discard it from collision testing.
+    void VeloUpdate(AABBHitbox P1, AABBHitbox P2, glm::vec2 VeloP1, glm::vec2 VeloP2) { //If anything is farther than searchRadius, discard it from collision testing.
         //First, clamp the velocities
 
         //X axis
@@ -148,14 +148,14 @@ class Ball : public Entity {
         if (Position.x >= WIDTH - ScaleLocal.x) {Position.x = WIDTH - ScaleLocal.x; CollisionAxes[0] = 1;}
 
         if (Collision(Hitbox, P1))  {
-            float Snapped = snapToSurfaceX(Hitbox, P1, Velocity.x);
+            float Snapped = snapToSurfaceX(Hitbox, P1, Velocity.x, VeloP1.x);
             Position.x += Snapped;
 
             CollisionAxes[0] = 1;  
         }
 
         if (Collision(Hitbox, P2))  {
-            float Snapped = snapToSurfaceX(Hitbox, P2, Velocity.x);
+            float Snapped = snapToSurfaceX(Hitbox, P2, Velocity.x, VeloP2.x);
             Position.x += Snapped;
 
             CollisionAxes[0] = 1;  
@@ -173,14 +173,14 @@ class Ball : public Entity {
         if (Position.y >= HEIGHT - ScaleLocal.y) {Position.y = HEIGHT - ScaleLocal.y; CollisionAxes[1] = 1;}
 
         if (Collision(Hitbox, P1))  {
-            float Snapped = snapToSurfaceY(Hitbox, P1, Velocity.y);
+            float Snapped = snapToSurfaceY(Hitbox, P1, Velocity.y, VeloP1.y);
             Position.y += Snapped;
 
             CollisionAxes[1] = 1;  
         }
 
         if (Collision(Hitbox, P2))  {
-            float Snapped = snapToSurfaceY(Hitbox, P2, Velocity.y);
+            float Snapped = snapToSurfaceY(Hitbox, P2, Velocity.y, VeloP2.y);
             Position.y += Snapped;
 
             CollisionAxes[1] = 1;  

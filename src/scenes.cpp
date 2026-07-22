@@ -6,8 +6,8 @@
 //PlayingScene
 
 void PlayingScene::Init() {
-    P1 = new Player(1, glm::vec3(WIDTH / 2 - 100, 30, 0.0), 0.0, glm::vec2(666.6, 0.0), glm::vec2(0.0), glm::vec2(1000.0, 0.0), glm::vec2(0.9), glm::vec2(100, 10), glm::vec2(1.0), glm::vec2(0.0), glm::vec2(100, 10));
-    P2 = new Player(2, glm::vec3(WIDTH / 2 - 100, HEIGHT - 10 - 30, 0.0), 0.0, glm::vec2(666.6, 0.0), glm::vec2(0.0), glm::vec2(1000.0, 0.0), glm::vec2(0.9), glm::vec2(100, 10), glm::vec2(1.0), glm::vec2(0.0), glm::vec2(100, 10));
+    P1 = new Player(1, glm::vec3(WIDTH / 2 - 100, 30, 0.0), 0.0, glm::vec2(1000.0, 0.0), glm::vec2(0.0), glm::vec2(1000.0, 0.0), glm::vec2(0.7), glm::vec2(100, 100), glm::vec2(1.0), glm::vec2(0.0), glm::vec2(100, 100));
+    P2 = new Player(2, glm::vec3(WIDTH / 2 - 100, HEIGHT - 10 - 30, 0.0), 0.0, glm::vec2(1000.0, 0.0), glm::vec2(0.0), glm::vec2(1000.0, 0.0), glm::vec2(0.7), glm::vec2(100, 10), glm::vec2(1.0), glm::vec2(0.0), glm::vec2(100, 10));
     
     mainVBO = new VertexBuffer(quadData, sizeof(quadData), GL_STATIC_DRAW);
     mainVBO->addAttribute(0, 2, GL_FLOAT, 4, 0);
@@ -24,7 +24,7 @@ void PlayingScene::Update() {
 
     P1->VeloUpdate();
     P2->VeloUpdate();
-    ball->VeloUpdate(P1->Hitbox, P2->Hitbox);
+    ball->VeloUpdate(P1->Hitbox, P2->Hitbox, P1->Velocity, P2->Velocity);
 }
 
 void PlayingScene::Render() {

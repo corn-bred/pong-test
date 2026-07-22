@@ -12,6 +12,6 @@ class AABBHitbox {
 
 bool Collision(AABBHitbox &a, AABBHitbox &b);
 
-float snapToSurfaceX(AABBHitbox &a, AABBHitbox &b, float xVelocity);
+float snapToSurfaceX(AABBHitbox &a, AABBHitbox &b, float xVelocityA, float xVelocityB);
 
-float snapToSurfaceY(AABBHitbox &a, AABBHitbox &b, float yVelocity);
+float snapToSurfaceY(AABBHitbox &a, AABBHitbox &b, float yVelocityA, float yVelocityB);
